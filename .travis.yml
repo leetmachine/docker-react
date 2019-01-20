@@ -8,6 +8,10 @@ before_install:
 script:
   - docker run keegang/docker-react npm run test -- --coverage
 
+branches:
+  only:
+    - master
+    
 deploy:
   provider: elasticbeanstalk
   region: "us-west-1"
@@ -16,9 +20,7 @@ deploy:
   bucket_name: "elasticbeanstalk-us-west-1-657633822694"
   bucket_path: "docker-react"
   on:
-    branches:
-      only:
-        - master
+    branch: master
   access_key_id: $AWS_ACCESS_KEY
   secret_access_key: 
     secure: "$AWS_SECRET_KEY"
