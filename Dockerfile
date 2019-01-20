@@ -2,7 +2,7 @@
 #first phase uses node img to copy our files, and build the project.
 FROM node:alpine as builder
 WORKDIR '/app'
-COPY package.json .
+COPY package*.json ./
 RUN npm install
 COPY . .
 RUN npm run build
