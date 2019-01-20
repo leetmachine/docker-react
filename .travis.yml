@@ -8,6 +8,10 @@ before_install:
 script:
   - docker run keegang/docker-react npm run test -- --coverage
 
+branches:
+  only:
+    - master
+    
 deploy:
   provider: elasticbeanstalk
   region: "us-west-1"
